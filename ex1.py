@@ -1,7 +1,3 @@
-# from libs.bpg import *
-# from utils import *
-# from utils_2 import *
-
 from lib.bpg import *
 window = bpg.Window((500,500))
 window.setTitle("Test Game")

@@ -64,15 +64,11 @@ class textBox(bpg.Component):
             self.width = rimg.width
         if self.height == 0:
             self.height = rimg.height
-        #rimg.topright = (self.x,self.y)
-        #rimg.bottomright = (self.x+self.width,self.y+self.height)
         rimg.x = self.x
         rimg.y = self.y
         rimg.width = self.width
         rimg.height = self.height
-        #pygame.draw.rect(objWindow.window,self.colorBackground,rimg)
         objWindow.window.blit(self._tsurface, rimg)
-        #objWindow.window.blit(self._tsurface,(20,20))
         
     
     
@@ -90,29 +86,19 @@ class writeBox(bpg.Component):
         self.height = height
         self.text = startText
         self.textBox = textBox(startText)
-        #self.testBox = Rectangle((x,y),(x+width,y+height))
-        
-        #self.textB = textBox(startText)
     def onAdd(self, objWindow) -> None:
         objWindow.add(self.textBox)
     def action(self, objWindow, events=[]) -> None:
-        
-        # if len(events) > 0:
-        #     print(events)
         self.textBox.text = self.text
         if self.allowInput:
             for event in events:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     mpos = pygame.mouse.get_pos()        
-                    #print("Hi!")
                     if mpos[0] < self.x + self.width and mpos[0] > self.x and mpos[1] < self.y + self.height and mpos[1] > self.y:
                         self.selected = True
-                        #print("Selected")
                     else:
                         self.selected = False
-                        #print("Deselected")
                 if event.type == pygame.KEYDOWN and self.selected:
-                    #print(pygame.key.name(event.key))
                     if not pygame.key.name(event.key) == "backspace":
                         self.text += event.unicode
                     else:

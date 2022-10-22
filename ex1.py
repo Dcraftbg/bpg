@@ -1,9 +1,11 @@
-from bpg import *
-from utils import *
-from utils_2 import *
-window = Window((500,500))
+# from libs.bpg import *
+# from utils import *
+# from utils_2 import *
+
+from lib.bpg import *
+window = bpg.Window((500,500))
 window.setTitle("SUSSY GAME")
-testTextBox = textBox("BRO NAH THIS SHIT IS GARBAGE",20,colorText=(255,255,255),colorBackground=(0,0,0,0))
+testTextBox = utils.textBox("BRO NAH THIS SHIT IS GARBAGE",20,colorText=(255,255,255),colorBackground=(0,0,0,0))
 testTextBox.x = 100
 window.add(testTextBox)
 amplifierX = 5

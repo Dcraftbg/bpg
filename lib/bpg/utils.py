@@ -1,7 +1,7 @@
 
-import bpg
+#import bpg
 import pygame
-
+from . import bpg
 class Image(bpg.Component):
     visible = True
     def __init__(self,path):
